@@ -1,5 +1,4 @@
 import Image from "next/image";
-import Link from "next/link";
 
 function Login() {
   return (
@@ -18,7 +17,9 @@ function Login() {
       {/* Right Section */}
       <div className="w-full lg:w-[450px] h-screen flex flex-col justify-center items-center px-8 lg:mr-20">
         <div className="w-full">
-          <h1 className="text-2xl lg:text-3xl font-bold">Log in to Exclusive</h1>
+          <h1 className="text-2xl lg:text-3xl font-bold">
+            Log in to Exclusive
+          </h1>
           <p className="text-sm pt-2">Enter your details below</p>
           <form action="" className="mt-5">
             <label htmlFor="email" className="sr-only">

@@ -1,8 +1,6 @@
 import HeroSection from "@/Components/HeroSection";
 import Freshsales from "@/Components/Freshsales";
 import OurProducts from "@/Components/OurProducts";
-import StatsCard from "@/Components/StatsCard";
-import { faTruck, faHeadphones, faCheckCircle} from "@fortawesome/free-solid-svg-icons";
 import Features from "@/Components/Featured";
 
 const page = () => {
@@ -10,9 +8,8 @@ const page = () => {
     <div>
       <HeroSection />
       <Freshsales />
-      <OurProducts/>
-      <Features/> 
-    
+      <OurProducts />
+      <Features />
     </div>
   );
 };
