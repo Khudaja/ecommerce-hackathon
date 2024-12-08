@@ -7,8 +7,8 @@ function Hero() {
       <Image
         src="/images/hero.png"
         alt="Hero Background"
-        layout="fill"
-        objectFit="cover"
+        fill
+        style={{objectFit: "cover"}} 
         priority
         className="z-[-1]"
       />

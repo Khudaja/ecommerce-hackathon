@@ -2,8 +2,12 @@ import React from "react";
 import Image from "next/image";
 import { faHeart, faEye } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { FaTrophy, FaShieldAlt, FaShippingFast, FaHeadset } from 'react-icons/fa'; // React Icons
-
+import {
+  FaTrophy,
+  FaShieldAlt,
+  FaShippingFast,
+  FaHeadset,
+} from "react-icons/fa"; // React Icons
 
 const Shop = () => {
   return (
@@ -12,10 +16,9 @@ const Shop = () => {
       <div className="w-full h-[250px] relative">
         <Image
           src="/images/shop.png"
-          alt="Shop"
-          layout="fill"
-          objectFit="cover"
-          className="w-full h-full"
+          fill
+          style={{ objectFit: "cover" }}
+          alt="Hero"
         />
         {/* Overlay Text */}
         <div className="absolute inset-0 flex flex-col justify-center items-center space-y-3 text-center text-black">
@@ -29,11 +32,9 @@ const Shop = () => {
         <div className="w-full h-[50px] relative flex justify-center items-center">
           <Image
             src="/images/shopbar.png"
-            alt="Shop"
-            layout="intrinsic"
-            width={1200}
-            height={50}
-            className="object-contain"
+            fill
+            style={{ objectFit: "cover" }}
+            alt="Hero"
           />
         </div>
       </div>
@@ -45,10 +46,11 @@ const Shop = () => {
             <div className="absolute top-2 right-2 bg-pink-500 text-white text-center text-xs font-bold rounded-full w-12 h-12 flex items-center justify-center">
               -30% Off
             </div>
-            <img
+            <Image
               src="/images/p1.png"
-              alt="Syltherine"
-              className="object-cover w-full h-3/5"
+              fill
+              style={{ objectFit: "cover" }}
+              alt="Hero"
             />
             <div className="text-center mt-4 space-y-2">
               <p className="font-semibold text-lg text-left pl-3">Syltherine</p>
@@ -75,10 +77,11 @@ const Shop = () => {
 
           {/* Card 2 */}
           <div className="group bg-[#F4F5F7] w-full h-[350px] overflow-hidden transition-transform transform hover:scale-105">
-            <img
+            <Image
               src="/images/p2.png"
-              alt="Leviosa"
-              className="object-cover w-full h-3/5"
+              fill
+              style={{ objectFit: "cover" }}
+              alt="Hero"
             />
             <div className="text-center mt-4 space-y-2">
               <p className="font-semibold text-lg text-left pl-3">Leviosa</p>
@@ -105,10 +108,11 @@ const Shop = () => {
             <div className="absolute top-2 right-2 bg-pink-500 text-white text-center text-xs font-bold rounded-full w-12 h-12 flex items-center justify-center">
               -30% Off
             </div>
-            <img
+            <Image
               src="/images/p3.png"
-              alt="Lolito"
-              className="object-cover w-full h-3/5"
+              fill
+              style={{ objectFit: "cover" }}
+              alt="Hero"
             />
             <div className="text-center mt-4 space-y-2">
               <p className="font-semibold text-lg text-left pl-3">Lolito</p>
@@ -134,10 +138,12 @@ const Shop = () => {
           </div>
 
           {/* Card 4 */}
-          <div className="group bg-[#F4F5F7] w-full h-[350px] overflow-hidden transition-transform transform hover:scale-105">
-            <img
+          <div className="relative group bg-[#F4F5F7] w-full h-[350px] overflow-hidden transition-transform transform hover:scale-105">
+            <Image
               src="/images/p4.png"
               alt="Savanna"
+              fill
+              sizes="100vw"
               className="object-cover w-full h-3/5"
             />
             <div className="text-center mt-4 space-y-2">
@@ -518,39 +524,41 @@ const Shop = () => {
       </div>
       {/* customer service */}
       <div className="h-200 w-full bg-[#FAF3EA] flex justify-around items-center py-10 mt-24">
-      {/* Column 1 */}
-      <div className="flex flex-col items-center text-center space-y-2 max-w-[200px]">
-        <div className="flex items-center space-x-2">
-          <FaTrophy className="text-5xl text-[#B88E2F]" />
-          <h3 className=" font-bold text-xl">High Quality</h3>
+        {/* Column 1 */}
+        <div className="flex flex-col items-center text-center space-y-2 max-w-[200px]">
+          <div className="flex items-center space-x-2">
+            <FaTrophy className="text-5xl text-[#B88E2F]" />
+            <h3 className=" font-bold text-xl">High Quality</h3>
+          </div>
+          <p className="text-sm text-gray-600 pl-12">
+            Crafted from top materials
+          </p>
         </div>
-        <p className="text-sm text-gray-600 pl-12">Crafted from top materials</p>
-      </div>
-      {/* Column 2 */}
-      <div className="flex flex-col items-center text-center space-y-2 max-w-[200px]">
-        <div className="flex items-center space-x-2">
-          <FaShieldAlt className="text-6xl text-[#B88E2F]" />
-          <h3 className="text-md font-bold text-xl">Warranty Protection</h3>
+        {/* Column 2 */}
+        <div className="flex flex-col items-center text-center space-y-2 max-w-[200px]">
+          <div className="flex items-center space-x-2">
+            <FaShieldAlt className="text-6xl text-[#B88E2F]" />
+            <h3 className="text-md font-bold text-xl">Warranty Protection</h3>
+          </div>
+          <p className="text-sm text-gray-600 pl-12">Over 2 years</p>
         </div>
-        <p className="text-sm text-gray-600 pl-12">Over 2 years</p>
-      </div>
-      {/* Column 3 */}
-      <div className="flex flex-col items-center text-center space-y-2 max-w-[200px]">
-        <div className="flex items-center space-x-2">
-          <FaShippingFast className="text-5xl text-[#B88E2F]" />
-          <h3 className=" font-bold text-xl">Free Shipping</h3>
+        {/* Column 3 */}
+        <div className="flex flex-col items-center text-center space-y-2 max-w-[200px]">
+          <div className="flex items-center space-x-2">
+            <FaShippingFast className="text-5xl text-[#B88E2F]" />
+            <h3 className=" font-bold text-xl">Free Shipping</h3>
+          </div>
+          <p className="text-sm text-gray-600 pl-12 ">Order over 150 $</p>
         </div>
-        <p className="text-sm text-gray-600 pl-12 ">Order over 150 $</p>
-      </div>
-      {/* Column 4 */}
-      <div className="flex flex-col items-center text-center space-y-2 max-w-[200px]">
-        <div className="flex items-center space-x-2">
-          <FaHeadset className="text-5xl text-[#B88E2F]" />
-          <h3 className=" font-bold text-xl">24 / 7 Support</h3>
+        {/* Column 4 */}
+        <div className="flex flex-col items-center text-center space-y-2 max-w-[200px]">
+          <div className="flex items-center space-x-2">
+            <FaHeadset className="text-5xl text-[#B88E2F]" />
+            <h3 className=" font-bold text-xl">24 / 7 Support</h3>
+          </div>
+          <p className="text-sm text-gray-600 pl-12">Dedicated support</p>
         </div>
-        <p className="text-sm text-gray-600 pl-12">Dedicated support</p>
       </div>
-    </div>
     </div>
   );
 };
