@@ -22,7 +22,12 @@ const Contact = () => {
         {/* Overlay Text */}
         <div className="absolute inset-0 flex flex-col justify-center items-center space-y-3 text-center text-black">
           <h1 className="text-4xl md:text-5xl font-bold">Contact</h1>
-          <p className="text-lg md:text-2xl font-semibold">Home &gt; Contact</p>
+          <p className="text-md sm:text-2xl font-semibold">
+            <a href="/" className="text-black hover:underline">
+              Home
+            </a>{" "}
+            <span className="mx-2">&gt;</span> Contact
+          </p>
         </div>
       </div>
 
@@ -124,43 +129,40 @@ const Contact = () => {
           </div>
         </div>
       </div>
-
-      <div className="h-auto w-full bg-[#FAF3EA] flex flex-col md:flex-row justify-around items-center py-10 mt-24">
-        {/* Column 1 */}
-        <div className="flex flex-col items-center text-center space-y-2 max-w-[200px]">
-          <div className="flex items-center space-x-2">
-            <FaTrophy className="text-5xl text-[#B88E2F]" />
-            <h3 className="font-bold text-xl">High Quality</h3>
-          </div>
-          <p className="text-sm text-gray-600 pl-12">
-            Crafted from top materials
-          </p>
-        </div>
-        {/* Column 2 */}
-        <div className="flex flex-col items-center text-center space-y-2 max-w-[200px]">
-          <div className="flex items-center space-x-2">
-            <FaShieldAlt className="text-6xl text-[#B88E2F]" />
-            <h3 className="text-md font-bold text-xl">Warranty Protection</h3>
-          </div>
-          <p className="text-sm text-gray-600 pl-12">Over 2 years</p>
-        </div>
-        {/* Column 3 */}
-        <div className="flex flex-col items-center text-center space-y-2 max-w-[200px]">
-          <div className="flex items-center space-x-2">
-            <FaShippingFast className="text-5xl text-[#B88E2F]" />
-            <h3 className="font-bold text-xl">Free Shipping</h3>
-          </div>
-          <p className="text-sm text-gray-600 pl-12 ">Order over 150 $</p>
-        </div>
-        {/* Column 4 */}
-        <div className="flex flex-col items-center text-center space-y-2 max-w-[200px]">
-          <div className="flex items-center space-x-2">
-            <FaHeadset className="text-5xl text-[#B88E2F]" />
-            <h3 className="font-bold text-xl">24 / 7 Support</h3>
-          </div>
-          <p className="text-sm text-gray-600 pl-12">Dedicated support</p>
-        </div>
-      </div>
+    {/* customer care */}
+      <div className="h-[200px] w-full bg-[#FAF3EA] flex flex-wrap justify-around items-center py-10 mt-16">
+              {[
+                {
+                  icon: FaTrophy,
+                  title: "High Quality",
+                  desc: "Crafted from top materials",
+                },
+                {
+                  icon: FaShieldAlt,
+                  title: "Warranty Protection",
+                  desc: "Over 2 years",
+                },
+                {
+                  icon: FaShippingFast,
+                  title: "Free Shipping",
+                  desc: "Order over $150",
+                },
+                {
+                  icon: FaHeadset,
+                  title: "24 / 7 Support",
+                  desc: "Dedicated support",
+                },
+              ].map((item, index) => (
+                <div
+                  key={index}
+                  className="flex flex-col items-center text-center space-y-2 max-w-[200px] p-4"
+                >
+                  <item.icon className="text-4xl text-[#B88E2F]" />
+                  <h3 className="font-bold text-md sm:text-l">{item.title}</h3>
+                  <p className="text-sm text-gray-600">{item.desc}</p>
+                </div>
+              ))}
+            </div>
     </div>
   );
 };

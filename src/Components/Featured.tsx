@@ -1,4 +1,4 @@
-'use client'; // Mark this file as a Client Component
+"use client"; // Mark this file as a Client Component
 
 import { useState } from "react";
 import Image from "next/image";
@@ -16,6 +16,11 @@ export default function Features() {
     setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length);
   };
 
+  const visibleImages = [
+    images[currentImageIndex],
+    images[(currentImageIndex + 1) % images.length],
+  ];
+
   return (
     <div className="w-full flex flex-col lg:flex-row h-auto lg:h-[400px] mt-6 bg-gray-100">
       {/* Left Section */}
@@ -25,7 +30,8 @@ export default function Features() {
             50+ Beautiful rooms inspiration
           </h2>
           <p className="text-base lg:text-lg text-gray-700 mb-4 lg:mb-6">
-            Our designer already made a lot of beautiful prototype of rooms that inspire you.
+            Our designer already made a lot of beautiful prototype of rooms that
+            inspire you.
           </p>
           <button className="px-4 lg:px-6 py-2 bg-yellow-600 text-white font-semibold border border-yellow-600 hover:bg-cream-300 transition duration-300">
             Explore More
@@ -34,21 +40,21 @@ export default function Features() {
       </div>
 
       {/* Right Section */}
-      <div className="w-full lg:w-2/3 relative overflow-hidden">
-        <div className="flex w-full">
-          {images.map((image, index) => (
+      <div className="w-full lg:w-2/3 relative overflow-hidden bg-gray-200 h-[400px]">
+        {/* Container for Images */}
+        <div className="flex w-full h-full transition-transform duration-500">
+          {visibleImages.map((image, index) => (
             <div
               key={index}
-              className={`w-full lg:w-1/3 relative transition-transform duration-500 ${
-                currentImageIndex === index ? "block" : "hidden lg:block"
-              }`}
+              className="w-1/2 relative h-full"
+              style={{ flex: "0 0 50%" }} // Ensures only 2 images are visible
             >
               <Image
                 src={image.src}
                 width={500}
-                height={200}
+                height={400}
                 alt={image.alt}
-                className="w-full h-[200px] lg:h-full object-cover"
+                className="w-full h-full object-cover"
               />
               <div className="absolute inset-0 bg-black bg-opacity-50 text-white text-center flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity">
                 {image.text}

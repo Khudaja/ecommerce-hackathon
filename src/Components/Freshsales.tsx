@@ -15,7 +15,7 @@ const Freshsales = () => {
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 lg:gap-12 mt-8 sm:mt-10 lg:mt-14">
         {/* Dining Section */}
         <div className="text-center">
-          <div className="w-full h-60 bg-gray-200 flex items-center justify-center">
+          <div className="w-full h-70 bg-gray-200 flex items-center justify-center">
             <img
               src="/images/dining.png"
               alt="Dining"
@@ -27,7 +27,7 @@ const Freshsales = () => {
 
         {/* Living Section */}
         <div className="text-center">
-          <div className="w-full h-60 bg-gray-200 flex items-center justify-center">
+          <div className="w-full h-70 bg-gray-200 flex items-center justify-center">
             <img
               src="/images/living.png"
               alt="Living"
@@ -39,7 +39,7 @@ const Freshsales = () => {
 
         {/* Bedroom Section */}
         <div className="text-center">
-          <div className="w-full h-60 bg-gray-200 flex items-center justify-center">
+          <div className="w-full h-70 bg-gray-200 flex items-center justify-center">
             <img
               src="/images/bedroom.png"
               alt="Bedroom"

@@ -1,6 +1,11 @@
-import React from 'react';
-import Image from 'next/image';
-import { FaTrophy, FaShieldAlt, FaShippingFast, FaHeadset } from 'react-icons/fa'; // React Icons
+import React from "react";
+import Image from "next/image";
+import {
+  FaTrophy,
+  FaShieldAlt,
+  FaShippingFast,
+  FaHeadset,
+} from "react-icons/fa"; // React Icons
 
 const BlogSection = () => {
   return (
@@ -17,7 +22,12 @@ const BlogSection = () => {
         {/* Overlay Text */}
         <div className="absolute inset-0 flex flex-col justify-center items-center space-y-3 text-center text-black">
           <h1 className="text-3xl sm:text-5xl font-bold">Blog</h1>
-          <p className="text-md sm:text-2xl font-semibold">Home &gt; Blog</p>
+          <p className="text-md sm:text-2xl font-semibold">
+            <a href="/" className="text-black hover:underline">
+              Home
+            </a>{" "}
+            <span className="mx-2">&gt;</span> Blog
+          </p>
         </div>
       </div>
 
@@ -42,9 +52,14 @@ const BlogSection = () => {
                   Going all-in with millennial design
                 </h2>
                 <p className="text-sm sm:text-md text-gray-600">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Mus mauris vitae ultricies leo integer malesuada nunc. In nulla posuere sollicitudin aliquam ultrices.
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                  Mus mauris vitae ultricies leo integer malesuada nunc. In
+                  nulla posuere sollicitudin aliquam ultrices.
                 </p>
-                <p className="border-b border-b-black w-max cursor-pointer">Read more</p>
+                <p className="border-b border-b-black w-max cursor-pointer">
+                  Read more
+                </p>
               </div>
             ))}
           </div>
@@ -85,19 +100,35 @@ const BlogSection = () => {
       </div>
 
       {/* Customer Care Section */}
-      <div className="h-auto w-full bg-[#FAF3EA] flex flex-wrap justify-around items-center py-10 mt-16">
+      <div className="h-[200px] w-full bg-[#FAF3EA] flex flex-wrap justify-around items-center py-10 mt-16">
         {[
-          { icon: FaTrophy, title: 'High Quality', desc: 'Crafted from top materials' },
-          { icon: FaShieldAlt, title: 'Warranty Protection', desc: 'Over 2 years' },
-          { icon: FaShippingFast, title: 'Free Shipping', desc: 'Order over $150' },
-          { icon: FaHeadset, title: '24 / 7 Support', desc: 'Dedicated support' },
+          {
+            icon: FaTrophy,
+            title: "High Quality",
+            desc: "Crafted from top materials",
+          },
+          {
+            icon: FaShieldAlt,
+            title: "Warranty Protection",
+            desc: "Over 2 years",
+          },
+          {
+            icon: FaShippingFast,
+            title: "Free Shipping",
+            desc: "Order over $150",
+          },
+          {
+            icon: FaHeadset,
+            title: "24 / 7 Support",
+            desc: "Dedicated support",
+          },
         ].map((item, index) => (
           <div
             key={index}
             className="flex flex-col items-center text-center space-y-2 max-w-[200px] p-4"
           >
-            <item.icon className="text-5xl text-[#B88E2F]" />
-            <h3 className="font-bold text-lg sm:text-xl">{item.title}</h3>
+            <item.icon className="text-4xl text-[#B88E2F]" />
+            <h3 className="font-bold text-md sm:text-md">{item.title}</h3>
             <p className="text-sm text-gray-600">{item.desc}</p>
           </div>
         ))}
