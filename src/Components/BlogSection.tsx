@@ -1,4 +1,4 @@
-import React from "react";
+import CustomerCare from "./CustomerCare";
 import Image from "next/image";
 import {
   FaTrophy,
@@ -100,38 +100,8 @@ const BlogSection = () => {
       </div>
 
       {/* Customer Care Section */}
-      <div className="h-[200px] w-full bg-[#FAF3EA] flex flex-wrap justify-around items-center py-10 mt-16">
-        {[
-          {
-            icon: FaTrophy,
-            title: "High Quality",
-            desc: "Crafted from top materials",
-          },
-          {
-            icon: FaShieldAlt,
-            title: "Warranty Protection",
-            desc: "Over 2 years",
-          },
-          {
-            icon: FaShippingFast,
-            title: "Free Shipping",
-            desc: "Order over $150",
-          },
-          {
-            icon: FaHeadset,
-            title: "24 / 7 Support",
-            desc: "Dedicated support",
-          },
-        ].map((item, index) => (
-          <div
-            key={index}
-            className="flex flex-col items-center text-center space-y-2 max-w-[200px] p-4"
-          >
-            <item.icon className="text-4xl text-[#B88E2F]" />
-            <h3 className="font-bold text-md sm:text-md">{item.title}</h3>
-            <p className="text-sm text-gray-600">{item.desc}</p>
-          </div>
-        ))}
+      <div>
+        <CustomerCare/>
       </div>
     </div>
   );

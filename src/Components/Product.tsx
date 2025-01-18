@@ -4,6 +4,7 @@ import Image from "next/image";
 import { faHeart, faEye } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { FaFacebookF, FaLinkedinIn, FaTwitter } from "react-icons/fa";
+import ProductCard from "./ProductCard";
 
 export default function ProductPage() {
   // State for managing the main image
@@ -117,30 +118,30 @@ export default function ProductPage() {
           </div>
         </div>
       </div>
-      <div className="p-8 text-gray-700 justify-items-end mr-80">
+      <div className="p-4 sm:p-6 lg:p-8 text-gray-700">
         <div className="space-y-4">
           {/* SKU */}
-          <div className="flex items-left">
+          <div className="flex flex-wrap sm:flex-nowrap items-start sm:items-center">
             <span className="w-24 text-gray-500">SKU</span>
             <span className="flex-1">: SS001</span>
           </div>
 
           {/* Category */}
-          <div className="flex items-left">
+          <div className="flex flex-wrap sm:flex-nowrap items-start sm:items-center">
             <span className="w-24 text-gray-500">Category</span>
             <span className="flex-1">: Sofas</span>
           </div>
 
           {/* Tags */}
-          <div className="flex items-left">
+          <div className="flex flex-wrap sm:flex-nowrap items-start sm:items-center">
             <span className="w-24 text-gray-500">Tags</span>
             <span className="flex-1">: Sofa, Chair, Home, Shop</span>
           </div>
 
           {/* Share */}
-          <div className="flex items-left">
+          <div className="flex flex-wrap sm:flex-nowrap items-start sm:items-center">
             <span className="w-24 text-gray-500">Share</span>
-            <span className="flex-1 flex gap-4 text-gray-600">
+            <span className="flex-1 flex gap-2 sm:gap-4 text-gray-600">
               <FaFacebookF className="cursor-pointer hover:text-black" />
               <FaLinkedinIn className="cursor-pointer hover:text-black" />
               <FaTwitter className="cursor-pointer hover:text-black" />
@@ -213,124 +214,44 @@ export default function ProductPage() {
         {/* Cards Row */}
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 my-12">
           {/* Card 1 */}
-          <div className="group bg-[#F4F5F7] w-full h-[350px] overflow-hidden transition-transform transform hover:scale-105">
-            <div className="absolute top-2 right-2 bg-pink-500 text-white text-center text-xs font-bold rounded-full w-12 h-12 flex items-center justify-center">
-              -30% Off
-            </div>
-            <img
-              src="/images/p1.png"
-              alt="Syltherine"
-              className="object-cover w-full h-3/5"
-            />
-            <div className="text-center mt-4 space-y-2">
-              <p className="font-semibold text-lg text-left pl-3">Syltherine</p>
-              <p className="text-gray-600 text-sm text-left pl-3">
-                Stylish cafe chair
-              </p>
-              <p className="font-semibold text-base text-left pl-3 mb-6">
-                Rp. 2,500,000{" "}
-                <span className="line-through text-gray-400 ml-4">
-                  Rp. 3,500,000
-                </span>
-              </p>
-            </div>
-            <div className="absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center flex-col space-y-4">
-              <button className="py-2 px-6 bg-yellow-600 text-white font-semibold rounded-lg">
-                Add to Cart
-              </button>
-              <div className="flex space-x-4 text-white">
-                <FontAwesomeIcon icon={faEye} className="text-xl" />
-                <FontAwesomeIcon icon={faHeart} className="text-xl" />
-              </div>
-            </div>
-          </div>
+          <ProductCard
+            image="/images/p1.png"
+            name="Syltherine"
+            description="Stylish cafe chair"
+            price="2,500,000"
+            oldPrice="3,500,000"
+            discount="-30%"
+          />
 
           {/* Card 2 */}
-          <div className="group bg-[#F4F5F7] w-full h-[350px] overflow-hidden transition-transform transform hover:scale-105">
-            <img
-              src="/images/p2.png"
-              alt="Leviosa"
-              className="object-cover w-full h-3/5"
-            />
-            <div className="text-center mt-4 space-y-2">
-              <p className="font-semibold text-lg text-left pl-3">Leviosa</p>
-              <p className="text-gray-600 text-sm text-left pl-3">
-                Stylish cafe chair
-              </p>
-              <p className="font-semibold text-base text-left pl-3 mb-6">
-                Rp. 2,500,000
-              </p>
-            </div>
-            <div className="absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center flex-col space-y-4">
-              <button className="py-2 px-6 bg-yellow-600 text-white font-semibold rounded-lg">
-                Add to Cart
-              </button>
-              <div className="flex space-x-4 text-white">
-                <FontAwesomeIcon icon={faEye} className="text-xl" />
-                <FontAwesomeIcon icon={faHeart} className="text-xl" />
-              </div>
-            </div>
-          </div>
+          <ProductCard
+            image="/images/p3.png"
+            name="Syltherine"
+            description="Stylish cafe chair"
+            price="2,500,000"
+            oldPrice="3,500,000"
+            discount="-30%"
+          />
 
           {/* Card 3 */}
-          <div className="group bg-[#F4F5F7] w-full h-[350px] overflow-hidden transition-transform transform hover:scale-105">
-            <div className="absolute top-2 right-2 bg-pink-500 text-white text-center text-xs font-bold rounded-full w-12 h-12 flex items-center justify-center">
-              -30% Off
-            </div>
-            <img
-              src="/images/p3.png"
-              alt="Lolito"
-              className="object-cover w-full h-3/5"
-            />
-            <div className="text-center mt-4 space-y-2">
-              <p className="font-semibold text-lg text-left pl-3">Lolito</p>
-              <p className="text-gray-600 text-sm text-left pl-3">
-                Luxury big sofa
-              </p>
-              <p className="font-semibold text-base text-left pl-3 mb-6">
-                Rp. 2,500,000{" "}
-                <span className="line-through text-gray-500 ml-4">
-                  Rp. 7,000,000
-                </span>
-              </p>
-            </div>
-            <div className="absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center flex-col space-y-4">
-              <button className="py-2 px-6 bg-yellow-600 text-white font-semibold rounded-lg">
-                Add to Cart
-              </button>
-              <div className="flex space-x-4 text-white">
-                <FontAwesomeIcon icon={faEye} className="text-xl" />
-                <FontAwesomeIcon icon={faHeart} className="text-xl" />
-              </div>
-            </div>
-          </div>
+          <ProductCard
+            image="/images/p2.png"
+            name="Syltherine"
+            description="Stylish cafe chair"
+            price="2,500,000"
+            oldPrice="3,500,000"
+            discount="-30%"
+          />
 
           {/* Card 4 */}
-          <div className="group bg-[#F4F5F7] w-full h-[350px] overflow-hidden transition-transform transform hover:scale-105">
-            <img
-              src="/images/p4.png"
-              alt="Savanna"
-              className="object-cover w-full h-3/5"
-            />
-            <div className="text-center mt-4 space-y-2">
-              <p className="font-semibold text-lg text-left pl-3">Savanna</p>
-              <p className="text-gray-600 text-sm text-left pl-3">
-                Outdoor chair
-              </p>
-              <p className="font-semibold text-base text-left pl-3 mb-6">
-                Rp. 1,800,000
-              </p>
-            </div>
-            <div className="absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center flex-col space-y-4">
-              <button className="py-2 px-6 bg-yellow-600 text-white font-semibold rounded-lg">
-                Add to Cart
-              </button>
-              <div className="flex space-x-4 text-white">
-                <FontAwesomeIcon icon={faEye} className="text-xl" />
-                <FontAwesomeIcon icon={faHeart} className="text-xl" />
-              </div>
-            </div>
-          </div>
+          <ProductCard
+            image="/images/p2.png"
+            name="Syltherine"
+            description="Stylish cafe chair"
+            price="2,500,000"
+            oldPrice="3,500,000"
+            discount="-30%"
+          />
         </div>
       </div>
       <div className="flex justify-center mb-20">
