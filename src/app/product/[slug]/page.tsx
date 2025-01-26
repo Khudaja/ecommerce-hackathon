@@ -55,11 +55,11 @@ const ProductPage = ({ params: { slug } }: { params: { slug: string } }) => {
       color: selectedColor,
       quantity: 1,
     };
-    let cart = JSON.parse(localStorage.getItem("cart") || "[]");
+    const cart = JSON.parse(localStorage.getItem("cart") || "[]");
 
     // Check if the product already exists in the cart
     const existingProductIndex = cart.findIndex(
-      (item: any) =>
+      (item: { _id: string; size: string; color: string }) =>
         item._id === product._id &&
         item.size === selectedSize &&
         item.color === selectedColor
