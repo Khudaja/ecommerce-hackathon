@@ -1,11 +1,13 @@
-import React from "react";
+import Image from "next/image";
 
 const Freshsales = () => {
   return (
     <div className="my-8 sm:my-12 lg:my-16 mx-4 sm:mx-8 lg:mx-16">
       {/* Heading */}
       <div className="text-center mb-6 sm:mb-8 lg:mb-10">
-        <h1 className="font-bold text-2xl sm:text-3xl lg:text-4xl">Browse the Range</h1>
+        <h1 className="font-bold text-2xl sm:text-3xl lg:text-4xl">
+          Browse the Range
+        </h1>
         <p className="text-gray-600 mt-2 text-sm sm:text-base">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit.
         </p>
@@ -16,9 +18,11 @@ const Freshsales = () => {
         {/* Dining Section */}
         <div className="text-center">
           <div className="w-full h-70 bg-gray-200 flex items-center justify-center">
-            <img
+            <Image
               src="/images/dining.png"
               alt="Dining"
+              width={500}
+              height={500}
               className="w-full h-full object-contain"
             />
           </div>
@@ -28,9 +32,11 @@ const Freshsales = () => {
         {/* Living Section */}
         <div className="text-center">
           <div className="w-full h-70 bg-gray-200 flex items-center justify-center">
-            <img
+            <Image
               src="/images/living.png"
               alt="Living"
+              width={500}
+              height={500}
               className="w-full h-full object-contain"
             />
           </div>
@@ -40,9 +46,11 @@ const Freshsales = () => {
         {/* Bedroom Section */}
         <div className="text-center">
           <div className="w-full h-70 bg-gray-200 flex items-center justify-center">
-            <img
+            <Image
               src="/images/bedroom.png"
               alt="Bedroom"
+              width={500}
+              height={500}
               className="w-full h-full object-contain"
             />
           </div>

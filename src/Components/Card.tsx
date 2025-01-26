@@ -2,12 +2,10 @@
 
 import React, { useState, useEffect } from "react";
 import sanityClient from "@sanity/client";
-import imageUrlBuilder from "@sanity/image-url";
 import Image from "next/image";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye } from "@fortawesome/free-solid-svg-icons";
 import Link from "next/link";
-import { product } from "@/sanity/schemaTypes/product";
 
 const sanity = sanityClient({
   projectId: "v1okume5",
@@ -15,8 +13,6 @@ const sanity = sanityClient({
   apiVersion: "2023-01-01",
   useCdn: true,
 });
-
-const builder = imageUrlBuilder(sanity);
 
 export interface Product {
   _id: string;
@@ -27,6 +23,7 @@ export interface Product {
   productImage: string;
   tags: string[];
   slug: string;
+  category: string;
 }
 
 interface ProductCardsProps {
@@ -57,7 +54,7 @@ const ProductCard: React.FC<ProductCardsProps> = ({ limit }) => {
   };
 
   const addTocart = (product: Product) => {
-    let cart = JSON.parse(localStorage.getItem("cart") || "[]");
+    const cart = JSON.parse(localStorage.getItem("cart") || "[]");
     cart.push(product);
     localStorage.setItem("cart", JSON.stringify(cart));
     alert(`${product.title} has been added to your cart.`);

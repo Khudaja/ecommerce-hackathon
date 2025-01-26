@@ -7,7 +7,6 @@ import {
   FaShippingFast,
   FaHeadset,
 } from "react-icons/fa"; 
-import { calculateTotal } from "./CartUtils";
 
 type CartItem = {
   name: string;

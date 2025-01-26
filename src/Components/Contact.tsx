@@ -1,12 +1,6 @@
 import CustomerCare from "./CustomerCare";
 import Image from "next/image";
 import { FaMapMarkerAlt, FaPhoneAlt, FaClock } from "react-icons/fa";
-import {
-  FaTrophy,
-  FaShieldAlt,
-  FaShippingFast,
-  FaHeadset,
-} from "react-icons/fa"; // React Icons
 
 const Contact = () => {
   return (

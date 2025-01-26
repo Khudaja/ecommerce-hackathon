@@ -2,11 +2,12 @@
 import React, { useState, useEffect } from "react";
 import { FaFacebookF, FaLinkedinIn, FaTwitter } from "react-icons/fa";
 import { client } from "@/sanity/lib/client";
+import Image from "next/image";
 import ProductCard, { Product } from "@/Components/Card";
 
 const ProductPage = ({ params: { slug } }: { params: { slug: string } }) => {
-  const [product, setProduct] = useState<any>(null);
-  const [relatedProducts, setRelatedProducts] = useState<any[]>([]);
+  const [product, setProduct] = useState<Product | null>(null);
+  const [, setRelatedProducts] = useState<Product[]>([]);
   const [selectedSize, setSelectedSize] = useState<string | null>(null);
   const [selectedColor, setSelectedColor] = useState<string | null>(null);
 
@@ -32,8 +33,8 @@ const ProductPage = ({ params: { slug } }: { params: { slug: string } }) => {
         price,
         "productImage": productImage.asset->url
       }`;
-
-      const relatedProducts = await client.fetch(relatedProductsQuery);
+      const relatedProducts: Product[] =
+        await client.fetch(relatedProductsQuery);
 
       setProduct(product);
       setRelatedProducts(relatedProducts);
@@ -91,10 +92,12 @@ const ProductPage = ({ params: { slug } }: { params: { slug: string } }) => {
           <div className="flex w-full md:w-1/2 space-x-4">
             {/* Main Image */}
             <div className="flex-1">
-              <img
+              <Image
                 src={product.productImage}
                 alt="Main Sofa"
                 className="w-full h-96"
+                width={500}
+                height={500}
               />
             </div>
           </div>

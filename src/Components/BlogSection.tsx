@@ -1,11 +1,5 @@
 import CustomerCare from "./CustomerCare";
 import Image from "next/image";
-import {
-  FaTrophy,
-  FaShieldAlt,
-  FaShippingFast,
-  FaHeadset,
-} from "react-icons/fa"; // React Icons
 
 const BlogSection = () => {
   return (
