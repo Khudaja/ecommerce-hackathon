@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 function Hero() {
   return (
@@ -28,7 +29,9 @@ function Hero() {
           tellus, luctus nec ullamcorper mattis.
         </p>
         <button className="bg-[#B88E2F] text-white py-2 px-10 sm:px-12 sm:py-3 md:px-14 md:py-3 hover:bg-[#a0522d] transition mt-6 sm:mt-7 md:mt-9">
-          Buy Now
+        <Link href="/shop" className="hover:text-gray-400">
+          Buy now
+        </Link>
         </button>
       </div>
     </div>

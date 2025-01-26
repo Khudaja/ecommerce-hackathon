@@ -1,13 +1,44 @@
-import React from "react";
+"use client"
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import {
-    FaTrophy,
-    FaShieldAlt,
-    FaShippingFast,
-    FaHeadset,
-  } from "react-icons/fa"; // React Icons
+  FaTrophy,
+  FaShieldAlt,
+  FaShippingFast,
+  FaHeadset,
+} from "react-icons/fa"; 
+import { calculateTotal } from "./CartUtils";
+
+type CartItem = {
+  name: string;
+  quantity: number;
+  price: number;
+};
+
+interface CheckoutProps {
+  cartItems: CartItem[];
+  total: number;
+}
+
+const Checkout: React.FC<CheckoutProps> = ({ cartItems = [] }) => {
+
+  const handleClick = () => {
+    alert("Your order has been successfully placed!");
+  };
+  const [subtotal, setSubtotal] = useState<number>(0);
+  const [total, setTotal] = useState<number>(0);
+
+  useEffect(() => {
+    // Get the data from localStorage when the component mounts
+    const storedSubtotal = localStorage.getItem("subtotal");
+    const storedTotal = localStorage.getItem("total");
+
+    if (storedSubtotal && storedTotal) {
+      setSubtotal(parseFloat(storedSubtotal));
+      setTotal(parseFloat(storedTotal));
+    }
+  }, []);
   
-const Checkout = () => {
   return (
     <div>
       {/* Background Image */}
@@ -35,7 +66,9 @@ const Checkout = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
             {/* Billing Details */}
             <div className="p-4 sm:p-6 bg-white rounded shadow">
-              <h2 className="text-xl sm:text-2xl font-semibold mb-4">Billing details</h2>
+              <h2 className="text-xl sm:text-2xl font-semibold mb-4">
+                Billing details
+              </h2>
               <form className="space-y-4">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
@@ -63,7 +96,9 @@ const Checkout = () => {
                   />
                 </div>
                 <div>
-                  <label className="block text-gray-700">Country / Region</label>
+                  <label className="block text-gray-700">
+                    Country / Region
+                  </label>
                   <select className="w-full p-2 border border-gray-300 rounded">
                     <option>Sri Lanka</option>
                     <option>Pakistan</option>
@@ -128,19 +163,33 @@ const Checkout = () => {
 
             {/* Product Summary */}
             <div className="p-4 sm:p-6 bg-white rounded shadow">
-              <h2 className="text-xl sm:text-2xl font-semibold mb-4">Product</h2>
-              <div className="space-y-2">
-                <div className="flex justify-between">
-                  <span>Asgaard sofa × 1</span>
-                  <span>Rs. 250,000.00</span>
-                </div>
-                <div className="flex justify-between">
-                  <span className="font-normal">Subtotal</span>
-                  <span>Rs. 250,000.00</span>
-                </div>
-                <div className="flex justify-between text-lg sm:text-xl font-semibold">
-                  <span>Total</span>
-                  <span className="text-yellow-600">Rs. 250,000.00</span>
+              <h2 className="text-xl sm:text-2xl font-semibold mb-4">
+                Product
+              </h2>
+              {/* Product pricing */}
+              <div className="p-4 sm:p-6 bg-white rounded shadow">
+                <h2 className="text-xl sm:text-2xl font-semibold mb-4">
+                  Product
+                </h2>
+                <div className="space-y-2">
+                  {cartItems.map((item, index: number) => (
+                    <div key={index} className="flex justify-between">
+                      <span>
+                        {item.name} × {item.quantity}
+                      </span>
+                      <span>
+                        Rs. {item.price ? item.price.toLocaleString() : "N/A"}
+                      </span>
+                    </div>
+                  ))}
+                  <div className="flex justify-between">
+                    <span className="font-normal">Subtotal</span>
+                    <p>Subtotal: ${subtotal.toFixed(2)}</p>
+                  </div>
+                  <div className="flex justify-between text-lg sm:text-xl font-semibold">
+                    <span>Total</span>
+                    <p>Total: ${total.toFixed(2)}</p>
+                  </div>
                 </div>
               </div>
               <div className="mt-6 space-y-4">
@@ -182,7 +231,10 @@ const Checkout = () => {
                 </p>
               </div>
               <div className="flex justify-center">
-                <button className="w-full lg:w-40 mt-6 p-3 bg-yellow-600 text-white border border-black rounded-md shadow hover:bg-yellow-700">
+                <button
+                  onClick={handleClick}
+                  className="w-full lg:w-40 mt-6 p-3 bg-yellow-600 text-white border border-black rounded-md shadow hover:bg-yellow-700"
+                >
                   Place order
                 </button>
               </div>
@@ -191,40 +243,42 @@ const Checkout = () => {
         </div>
       </div>
 
-       {/* customer service */}
-            <div className="h-[200px] w-full bg-[#FAF3EA] flex flex-wrap justify-around items-center py-10 mt-16">
-              {[
-                {
-                  icon: FaTrophy,
-                  title: "High Quality",
-                  desc: "Crafted from top materials",
-                },
-                {
-                  icon: FaShieldAlt,
-                  title: "Warranty Protection",
-                  desc: "Over 2 years",
-                },
-                {
-                  icon: FaShippingFast,
-                  title: "Free Shipping",
-                  desc: "Order over $150",
-                },
-                {
-                  icon: FaHeadset,
-                  title: "24 / 7 Support",
-                  desc: "Dedicated support",
-                },
-              ].map((item, index) => (
-                <div
-                  key={index}
-                  className="flex flex-col items-center text-center space-y-2 max-w-[200px] p-4"
-                >
-                  <item.icon className="text-4xl text-[#B88E2F]" />
-                  <h3 className="font-bold text-md sm:text-l">{item.title}</h3>
-                  <p className="text-sm text-gray-600">{item.desc}</p>
-                </div>
-              ))}
-            </div>
+      {/* Customer Service */}
+      <div className="h-[200px] w-full bg-[#FAF3EA] flex flex-wrap justify-around items-center py-10 mt-16">
+        {[
+          {
+            icon: FaTrophy,
+            title: "High Quality",
+            desc: "Crafted from top materials",
+          },
+          {
+            icon: FaShieldAlt,
+            title: "Warranty Protection",
+            desc: "Over 2 years",
+          },
+          {
+            icon: FaShippingFast,
+            title: "Free Shipping",
+            desc: "Order over $150",
+          },
+          {
+            icon: FaHeadset,
+            title: "24 / 7 Support",
+            desc: "Dedicated support",
+          },
+        ].map((item, index: number) => (
+          <div
+            key={index}
+            className="flex flex-col items-center text-center space-y-2 max-w-[200px] p-4"
+          >
+            <item.icon className="text-4xl text-[#B88B4A]" />
+            <h3 className="text-sm sm:text-base text-[#B88B4A] font-semibold">
+              {item.title}
+            </h3>
+            <p className="text-sm text-gray-600">{item.desc}</p>
+          </div>
+        ))}
+      </div>
     </div>
   );
 };

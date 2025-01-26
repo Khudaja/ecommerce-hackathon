@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Features() {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
@@ -34,7 +35,9 @@ export default function Features() {
             inspire you.
           </p>
           <button className="px-4 lg:px-6 py-2 bg-yellow-600 text-white font-semibold border border-yellow-600 hover:bg-cream-300 transition duration-300">
-            Explore More
+            <Link href="/shop" className="hover:text-gray-400">
+              Explore More
+            </Link>
           </button>
         </div>
       </div>
